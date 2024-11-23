@@ -1,0 +1,18 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "common"
+  namespace: "ztp-policies"
+spec:
+  bindingRules:
+    common: "ocp416"
+    logicalGroup: "active"
+  mcp: master
+  remediationAction: inform
+  sourceFiles:
+    - fileName: OperatorHub.yaml
+      policyName: config-policies
+    - fileName: DefaultCatsrc.yaml
+      policyName: config-policies
+
