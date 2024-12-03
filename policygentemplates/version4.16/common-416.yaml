@@ -1,0 +1,23 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "common"
+  namespace: "ztp-policies"
+spec:
+  bindingRules:
+    common: "ocp416"
+    logicalGroup: "active"
+  mcp: master
+  remediationAction: inform
+  sourceFiles:
+    - fileName: OperatorHub.yaml
+      policyName: config-policies
+    - fileName: DefaultCatsrc.yaml
+      policyName: config-policies
+      metadata:
+        name: redhat-operators-disconnected
+      spec:
+        displayName: disconnected-redhat-operators
+        image: quay.rhoso.bootcamp.lab:8443/redhat/redhat-operator-index:v4.16
+
