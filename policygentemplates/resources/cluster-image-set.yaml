@@ -1,0 +1,7 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: active-ocp-version
+spec:
+  releaseImage: quay.rhoso.bootcamp.lab:8443/openshift/release-images:4.16.14-x86_64
